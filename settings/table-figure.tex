@@ -1,0 +1,148 @@
+\usepackage{graphicx} % Required for including pictures
+\graphicspath{{figures/}{../figures/}} % Specifies the directory where pictures are stored, the first path relative to the main file, the second path relative to the chapters folder
+\usepackage[centerlast]{subfigure} % insert multi figures
+\makeatletter
+\renewcommand\p@subfigure{\thefigure.}
+\renewcommand*{\thesubfigure}{\alph{subfigure}.} % a.
+\makeatother
+
+\usepackage{wrapfig} % wrap figures
+% \usepackage{floatflt} % another option for wrap figure
+\usepackage{sidecap} % caption right side
+\sidecaptionvpos{figure}{c} % place caption middle of figure
+
+\usepackage{caption} % use for captions in figures/tables
+% cf. http://bit.ly/2GR36Vs
+\captionsetup[figure]{
+  labelformat=simple, 
+  labelsep=period,
+  font={small},
+  labelfont={color=ocre,sf,footnotesize},
+  justification=centering
+}
+\captionsetup[table]{
+  labelformat=simple, 
+  labelsep=period,
+  font={small},
+  labelfont={color=ocre,sf,footnotesize},
+  justification=centering
+}
+
+\usepackage{booktabs} % Required for nicer horizontal rules in tables
+
+\usepackage{tikz} % Required for drawing custom shapes
+\usepackage{xcolor} % rowcolor
+% \usepackage{xcolor} % Required for specifying colors by name
+% \definecolor{ocre}{RGB}{243,102,25} % Define the orange color used for highlighting throughout the book
+\definecolor{ocre}{RGB}{25,102,243} % blue
+\definecolor{tblue}{RGB}{25,102,243} % blue
+\definecolor{tbrown}{rgb}{0.8, 0.0, 0.0} % brown
+% \definecolor{tpink}{rgb}{1.0, 0.13, 0.32} % pink
+\definecolor{tpink}{rgb}{0.93, 0.23, 0.51} 
+\definecolor{tyellow}{rgb}{1.0, 0.75, 0.0} % yellow
+\definecolor{tgreen}{rgb}{0.0, 0.5, 0.0} % green
+
+
+% --------------------------------------------
+% table
+% --------------------------------------------
+\usepackage{tabu} % special tables
+\taburulecolor{white} % line color
+\newcommand{\tableHeaderStyle}{
+  \rowfont{\leavevmode\color{white}}
+  \rowcolor{tblue!80}
+}
+\newcommand{\tableRowStyle}{
+  \rowcolor{black!5}
+}
+\newcommand{\lastLineStyle}{
+  \taburulecolor{tblue}
+  \bottomrule
+}
+\newcommand{\bline}{
+  \taburulecolor{tblue}
+  \hline
+  \taburulecolor{white} % back to default
+}
+\usepackage{colortbl}
+\newcolumntype{g}{>{\columncolor{black!5}}c}
+\newcolumntype{b}{>{\centering\columncolor{tblue!80}\color{white}}c}
+\usepackage{multirow} % multirows
+
+% --------------------------------------------
+% add codes
+% --------------------------------------------
+\usepackage{listings}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+\lstset{frame=tb,
+  language=Matlab,
+  aboveskip=\parskip,
+  belowskip=\parskip,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=left,
+  numberstyle=\tiny\color{tpink},
+  keywordstyle=\color{tblue},
+  commentstyle=\color{tgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=2,
+  emph={%  
+    initmesh, poimesh%
+    },
+  emphstyle={\color{tblue}\bfseries}%
+}
+\newcommand{\code}[1]{{\color{violet}\lstinline[basicstyle={\normalsize\ttfamily},keywordstyle=\color{violet}]{#1}}} % normal text
+
+\newcommand{\codeFN}[1]{{\color{violet}\lstinline[basicstyle={\footnotesize\ttfamily},keywordstyle=\color{violet}]{#1}}} % code in footnote
+
+\newcommand{\codeSM}[1]{{\color{violet}\lstinline[basicstyle={\small\ttfamily},keywordstyle=\color{violet}]{#1}}} % code in small text
+
+% \newcommand{\code}[1]{{\lstinline[basicstyle={\normalsize\ttfamily},keywordstyle=]{#1}}} % normal text
+
+% \newcommand{\codeFN}[1]{{\lstinline[basicstyle={\footnotesize\ttfamily},keywordstyle=]{#1}}} % code in footnote
+
+% \newcommand{\codeSM}[1]{{\lstinline[basicstyle={\small\ttfamily},keywordstyle=]{#1}}} % code in small text
+
+\newcommand{\codew}[2]{{\color{#1}\lstinline[basicstyle={\normalsize\ttfamily},keywordstyle=\color{#1}]{#2}}} % normal text (white)
+
+\newcommand{\codeFNw}[2]{{\color{#1}\lstinline[basicstyle={\footnotesize\ttfamily},keywordstyle=\color{#1}]{#2}}} % code in footnote (white)
+
+\newcommand{\codeSMw}[2]{{\color{#1}\lstinline[basicstyle={\small\ttfamily},keywordstyle=\color{#1}]{#2}}} % code in small text (white)
+
+
+% --------------------------------------------
+% algorithm2e
+% --------------------------------------------
+
+\usepackage{morewrites} % prevent error "No room"
+
+\usepackage[ruled,vlined,algochapter]{algorithm2e}
+% set color rules in algorithm2e
+\makeatletter
+\newcommand{\setalgotoprulecolor}[1]{\colorlet{toprulecolor}{#1}}
+\let\old@algocf@pre@ruled\@algocf@pre@ruled % Adjust top rule colour
+\renewcommand{\@algocf@pre@ruled}{\textcolor{toprulecolor}{\old@algocf@pre@ruled}}
+\newcommand{\setalgobotrulecolor}[1]{\colorlet{bottomrulecolor}{#1}}
+\let\old@algocf@post@ruled\@algocf@post@ruled % Adjust middle rule colour
+\renewcommand{\@algocf@post@ruled}{\textcolor{bottomrulecolor}{\old@algocf@post@ruled}}
+\newcommand{\setalgomidrulecolor}[1]{\colorlet{midrulecolor}{#1}}
+\renewcommand{\algocf@caption@ruled}{%
+  \box\algocf@capbox{\color{midrulecolor}\kern\interspacetitleruled\hrule
+    width\algocf@ruledwidth height\algotitleheightrule depth0pt\kern\interspacealgoruled}}
+\makeatother
+% rules
+\setalgotoprulecolor{tblue!80}% Default
+\setalgobotrulecolor{tblue!80}% Default
+\setalgomidrulecolor{tblue!80}% Default
+% caption
+\SetAlgoCaptionSeparator{.}
+\renewcommand\AlCapFnt{\small\sffamily\bfseries}
+% non-italic
+\SetArgSty{textnormal}
+% incease space rule and caption
+\setlength{\interspacetitleruled}{3pt}%

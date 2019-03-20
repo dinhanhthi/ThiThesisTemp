@@ -1,0 +1,33 @@
+% !TeX root = ../main.tex
+\documentclass[../main.tex]{subfiles}
+\begin{document}
+\chapter{Implementation and NXFEM toolbox}
+\label{chap:app-a}
+
+\section{Some principles of quadrature}
+\label{sec:app-quadrature}
+
+\begin{definition}[Quadrature]\label{def:quadrature}
+  \cite{Ern2013FEM} Let $D$ be a non-empty, Lipschitz, compact, connected subset of $\mbb{R}^n$. Let $l_q$ be an integer. A quadrature is an approximation of the definite integral of a function. It's usually stated as a weighted sum of function values at specific points within domain of integration. So, a quadrature on $D$ with $l_q$ points consists of
+
+  \begin{enumerate}[label=\normalfont(\roman*)]
+    \item A set of $l_q$ real numbers $\{\omg_1,\ldots,\omg_q\}$ called \textit{quadrature weights}\index{quadrature!quadrature weights}.
+    \item A set of $l_q$ points $\{\xi_1,\ldots,\xi_q\}$ in $D$ called \textit{Gaussian points}\index{Gaussian points} or \textit{quadrature nodes}\index{quadrature!quadrature nodes}.
+  \end{enumerate}
+
+  The largest integer $k$ such that
+
+  \begin{align*}
+    \forall g\in \mbb{P}_k,
+    \int_D g(x)\dif x 
+      = \sum_{q=1}^{l_q} \omg_q g(\xi_q), 
+  \end{align*}
+
+  is called the \textit{quadrature order}\index{quadrature!quadrature order} and is denoted by $k_q$.
+\end{definition}
+
+In this thesis, I will use an $n$-point \textit{Gaussian quadrature rule}\index{Gaussian quadrature rule} which is a quadrature rule constructed to yield \textit{an exact} result for polynomials of degree $2n-1$ or less by using suitable couples $\{\omg_q,\xi_q\}$ for $q=1,\ldots,n$. More specifically, I apply Gaussian quadrature only for type of domain which is a segment (in dimension 1)\glsadd{oned} or a triangle (in dimension 2)\glsadd{twod}. Note that, $n$-point Gaussian quadrature is corresponding to quadrature order $k_q=2n+1$ (see the proof in \cite[Proposition~8.2]{Ern2013FEM}).
+
+
+
+\end{document}

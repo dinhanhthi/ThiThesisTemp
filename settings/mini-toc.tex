@@ -1,0 +1,32 @@
+%-----------------------------------------
+%	MINI TOC FOR EACH CHAPTER
+%-----------------------------------------
+% \usepackage{xparse} % put it in packages.tex
+% this technique also uses package titletoc
+\let\originalchapter\chapter
+\RenewDocumentCommand{\chapter}{som}{%
+  \IfBooleanTF{#1}
+    {\originalchapter*{#3}}
+    {\IfNoValueTF{#2}
+      {\originalchapter{#3}}
+      {\originalchapter[#2]{#3}}%
+    }%
+  \startcontents[chapters]
+  % \hrule \vspace*{10pt}
+  \titlecontents{tsection}[0.8cm] % Indentation
+    {\addvspace{-2pt}\small\sffamily} % Spacing and font options for sections
+    {\contentslabel[\small\thecontentslabel]{0.8cm}} % Section number
+    {}
+    {\hfill\small\thecontentspage} % Page number
+    [] % after each section
+  \titlecontents{tsubsection}[1.8cm] % Indentation
+    {\addvspace{-5pt}\footnotesize\sffamily} % Spacing and font options for subsections
+    {\contentslabel[\footnotesize\thecontentslabel]{1cm}} % Subsection number
+    {}
+    {\ \titlerule*[.5pc]{.}\;\footnotesize\thecontentspage} % Page number
+    []
+  \printcontents[chapters]{t}{1}{\section*{\contentsname}\hrule}
+  \vspace*{6pt}
+  \hrule
+  \vspace*{50pt}
+}

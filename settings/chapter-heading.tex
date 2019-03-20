@@ -1,0 +1,48 @@
+\makeatletter
+\tikzset{
+   chaptertitle/.style={
+     line width = 2pt ,
+     rounded corners = 15pt ,
+     draw = ocre ,
+     fill = white ,
+     fill opacity = 1 ,
+     inner sep = 15pt ,
+     text height = 25pt,
+     text = black!90,
+     node font = \huge\sffamily\bfseries ,
+     text width = \paperwidth-\Gm@lmargin-20pt , % width of the text
+     align = left,
+   }
+}
+
+\renewcommand\@makechapterhead[1]{%
+   {%
+     \parindent \z@ \raggedright \normalfont
+     \ifnum \c@secnumdepth >\m@ne
+       \begin{tikzpicture}[remember picture,overlay]
+         \node at (current page.north west)
+           {
+             \begin{tikzpicture}[remember picture,overlay]
+               \node[anchor=south west,chaptertitle] at (\Gm@lmargin,-9cm)
+                 {\if@mainmatter\thechapter. \fi#1\strut};
+             \end{tikzpicture}
+           };
+       \end{tikzpicture}
+     \fi
+     \par\vspace*{270\p@}
+   }%
+}
+
+% if there is NO number chapter
+\renewcommand\@makeschapterhead[1]{%
+   \begin{tikzpicture}[remember picture,overlay]
+     \node at (current page.north west)
+       {
+         \begin{tikzpicture}[remember picture,overlay]
+           \node[anchor=south west,chaptertitle] at (\Gm@lmargin,-9cm){#1\strut};
+         \end{tikzpicture}
+       };
+   \end{tikzpicture}
+   \par\vspace*{270\p@}
+}
+\makeatother

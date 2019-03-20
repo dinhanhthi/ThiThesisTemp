@@ -1,0 +1,207 @@
+\usepackage{amsmath,amsfonts,amssymb,amsthm} % For math equations, theorems, symbols, etc
+
+\usepackage{commath} % for \fullfunction
+\allowdisplaybreaks % allow page break
+
+% \newcommand{\intoo}[2]{\mathopen{]}#1\,;#2\mathclose{[}}
+% \newcommand{\ud}{\mathop{\mathrm{{}d}}\mathopen{}}
+% \newcommand{\intff}[2]{\mathopen{[}#1\,;#2\mathclose{]}}
+% \newtheorem{notation}{Notation}[chapter]
+
+\renewcommand\qedsymbol{\color{tblue!85}$\blacksquare$} % QED symbol
+
+% Boxed/framed environments
+\newtheoremstyle{blacknumbox} % Theorem style name
+{\parsep}% Space above
+{\parsep}% Space below
+{\normalfont}% Body font
+{}% Indent amount
+{\small\bf\sffamily}% Theorem head font
+{\;\smallskip}% Punctuation after theorem head
+{0.25em} % line break after theorem head
+{{\color{tblue!95}\small\sffamily\thmname{#1}}\nobreakspace\thmnumber{\@ifnotempty{#1}{}\@upn{\color{tblue!95}#2}}% Theorem text (e.g. Theorem 2.1)
+\thmnote{\nobreakspace{\color{tblue!95}\the\thm@notefont\sffamily\bfseries---}\nobreakspace{#3}.}}% Optional theorem note
+
+\newtheoremstyle{smallnumbox} % Theorem style name
+{\parsep}% Space above
+{\parsep}% Space below
+% {\small}% Body font
+{\normalfont}% Body font
+{}% Indent amount
+{\small\bf\sffamily}% Theorem head font
+{\;\smallskip}% Punctuation after theorem head
+{0.25em} % line break after theorem head
+{{\color{tblue!95}\small\sffamily\thmname{#1}}\nobreakspace\thmnumber{\@ifnotempty{#1}{}\@upn{\color{tblue!95}#2}}% Theorem text (e.g. Theorem 2.1)
+\thmnote{\nobreakspace{\color{tblue!95}\the\thm@notefont\sffamily\bfseries---}\nobreakspace{#3}.}}% Optional theorem note
+
+% assumption environments
+\newtheoremstyle{assbox} % Theorem style name
+{\parsep}% Space above
+{\parsep}% Space below
+{\normalfont}% Body font
+{}% Indent amount
+{\small\bf\sffamily}% Theorem head font
+{\;\smallskip}% Punctuation after theorem head
+{0.25em} % line break after theorem head
+{{\small\sffamily\thmname{#1}}\nobreakspace\thmnumber{\@ifnotempty{#1}{}\@upn{#2}}% Theorem text (e.g. Theorem 2.1)
+\thmnote{\nobreakspace{\the\thm@notefont\sffamily\bfseries---}\nobreakspace{#3}.}}% Optional theorem note
+
+\makeatother
+
+% Defines the theorem text style for each type of theorem tothe style above
+\newcounter{theo}
+\numberwithin{theo}{chapter}
+\newcounter{prop}
+\numberwithin{prop}{chapter}
+\newcounter{rema}
+\numberwithin{rema}{chapter}
+\newcounter{ass}
+\numberwithin{ass}{chapter}
+\newcounter{not}
+\numberwithin{not}{chapter}
+
+\theoremstyle{blacknumbox}
+\newtheorem{theoremeT}[theo]{Theorem}
+\newtheorem{definitionT}{Definition}[chapter]
+\newtheorem{propositionT}[prop]{Proposition}
+
+\theoremstyle{assbox}
+\newtheorem{assumptionT}[ass]{Assumption}
+\newtheorem{notationT}[not]{Notation}
+
+\theoremstyle{smallnumbox}
+\newtheorem{remarkT}[rema]{Remark}
+
+
+%--------------------------------------------
+%	DEFINITION OF COLORED BOXES
+%--------------------------------------------
+\RequirePackage[framemethod=default]{mdframed} % Required for creating the theorem, definition, exercise and corollary boxes
+
+% definition, theorem, proposition box
+\newmdenv[skipabove=13pt,
+skipbelow=15pt,
+rightline=true,
+leftline=true,
+topline=true,
+bottomline=true,
+linecolor=tblue!80,
+innerleftmargin=10pt,
+innerrightmargin=10pt,
+innertopmargin=10pt,
+innerbottommargin=10pt,
+leftmargin=0cm,
+rightmargin=0cm,
+linewidth=1pt]{tBox}
+
+% remark box
+\newmdenv[skipabove=13pt,
+skipbelow=15pt,
+rightline=false,
+leftline=true,
+topline=false,
+bottomline=false,
+linecolor=tblue!80,
+innerleftmargin=10pt,
+innerrightmargin=10pt,
+innertopmargin=10pt,
+innerbottommargin=10pt,
+innermargin =0cm,
+outermargin =0cm,
+% innermargin =+1cm,
+% outermargin =+1cm,
+% leftmargin=2cm,
+% rightmargin=2cm,
+linewidth=1.5pt]{dBox}
+
+
+% Creates an environment for each type of theorem and assigns it a theorem text style from the "Theorem Styles" section above and a colored box from above
+\newenvironment{theorem}{\begin{tBox}\begin{theoremeT}}{\end{theoremeT}\end{tBox}}		  
+\newenvironment{definition}{\begin{tBox}\begin{definitionT}}{\end{definitionT}\end{tBox}}
+\newenvironment{proposition}{\begin{tBox}\begin{propositionT}}{\end{propositionT}\end{tBox}}
+\newenvironment{remark}{\begin{dBox}\begin{remarkT}}{\end{remarkT}\end{dBox}}
+\newenvironment{assumption}{\begin{assumptionT}}{\end{assumptionT}}
+\newenvironment{notation}{\begin{notationT}}{\end{notationT}}
+
+%------------------------------------------
+%	REMARK ENVIRONMENT
+%------------------------------------------
+
+% above and below lines
+%--------------------------------------------------
+
+% % cf. http://bit.ly/2FgjWHA
+% \usepackage{ifmtarg}% http://ctan.org/pkg/ifmtarg
+% \usepackage{xifthen}% http://ctan.org/pkg/xifthen
+% \usepackage{multido}% http://ctan.org/pkg/multido
+
+% \newcommand{\remarkhang}{% top theorem decoration
+%   \begingroup%
+%   \setlength{\unitlength}{.005\linewidth}% \linewidth/200
+%     \begin{picture}(0,0)(1.5,0)%
+%       \linethickness{1pt} \color{tblue!80}%
+%       \put(-3,2){\line(1,0){206}}% Top line
+%       \multido{\iA=2+-1,\iB=50+-10}{5}{% Top hangs
+%         \color{tblue!\iB}%
+%         \put(-3,\iA){\line(0,-1){1}}% Top left hang
+%         \put(203,\iA){\line(0,-1){1}}% Top right hang
+%       }%
+%     \end{picture}%
+%   \endgroup%
+% }%
+% \newcommand{\remarkhung}{% bottom theorem decoration
+%   \nobreak
+%   \begingroup%
+%     \setlength{\unitlength}{.005\linewidth}% \linewidth/200
+%     \begin{picture}(0,0)(1.5,0)%
+%       \linethickness{1pt} \color{tblue!80}%
+%       \put(-3,0){\line(1,0){206}}% Bottom line
+%       \multido{\iA=0+1,\iB=50+-10}{5}{% Bottom hangs
+%         \color{tblue!\iB}%
+%         \put(-3,\iA){\line(0,1){1}}% Bottom left hang
+%         \put(203,\iA){\line(0,1){1}}% Bottom right hang
+%       }%
+%     \end{picture}%
+%   \endgroup%
+% }%
+
+% \newcounter{remark}
+% \numberwithin{remark}{chapter}
+% \newtheorem{remarkT}[remark]{Remark}
+% \newenvironment{remark}{\addvspace{3ex}\par\noindent\remarkhang\par\addvspace{-1.5ex}\nobreak\noindent\begin{remarkT}}{\end{remarkT}\par\addvspace{-3.5ex}\nobreak\noindent\remarkhung\par\addvspace{.4ex}}
+
+
+
+%============================================
+% box around math
+%============================================
+
+% box full width
+%--------------------------------------------------
+
+% % Definition box (black)
+% \newmdenv[skipabove=\parsep,
+% skipbelow=\parsep,
+% rightline=true,
+% leftline=true,
+% topline=true,
+% bottomline=true,
+% linecolor=black!80,
+% innerleftmargin=10pt,
+% innerrightmargin=10pt,
+% innertopmargin=12pt,
+% innerbottommargin=5pt,
+% leftmargin=0cm,
+% rightmargin=0cm,
+% roundcorner=3pt,
+% linewidth=0.7pt]{bBox}
+
+% \newenvironment{mathbox}{\begin{bBox}}{\end{bBox}}
+
+% box fits texts
+%--------------------------------------------------
+\usepackage{empheq}
+% \newcommand*\widefbox[1]{\fbox{\hspace{0.5em}#1\hspace{0.5em}}} % without verticle gap
+\usepackage{stackengine} % for verticle gap
+\newcommand*\widefbox[1]{\fbox{\hspace{1em}\addstackgap[5pt]{#1}\hspace{1em}}}
+\newcommand*\vfbox[1]{\fbox{\hspace{0.5em}\addstackgap[5pt]{#1}\hspace{0.5em}}}

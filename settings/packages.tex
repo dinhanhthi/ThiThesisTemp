@@ -1,0 +1,48 @@
+\usepackage[top=3cm,bottom=3cm,left=2.5cm,right=2.5cm,headsep=20pt,a4paper,bindingoffset=2cm]{geometry} % Page margins
+
+\usepackage{lipsum} % Inserts dummy text
+
+\usepackage[english]{babel} % English language/hyphenation
+
+\usepackage{enumitem} % Customize lists
+\setlist{nolistsep} % Reduce spacing between bullet points and numbered lists
+
+\usepackage{subfiles} % se for separating chapters and frontmatters into files
+% cf. http://bit.ly/2IvFh1U
+
+\usepackage{xparse} % mini toc in each chapters
+% cf. mini-toc.tex
+
+\usepackage{nameref} % auto add Chapter/Theorem before ref
+% cf. http://bit.ly/2qnq1gH
+\NewDocumentCommand{\chapref}{s m}{Chapter~\ref{#2}\IfBooleanF{#1}{ \nameref{#2}}} % chapters
+\NewDocumentCommand{\partref}{s m}{Part~\ref{#2}\IfBooleanF{#1}{ \nameref{#2}}} % parts
+\NewDocumentCommand{\secref}{s m}{Section~\ref{#2}\IfBooleanF{#1}{ \nameref{#2}}} % sections
+\NewDocumentCommand{\appref}{s m}{Appendix~\ref{#2}\IfBooleanF{#1}{ \nameref{#2}}} % sections
+\NewDocumentCommand{\figref}{s m}{Figure~\ref{#2}\IfBooleanF{#1}{ \nameref{#2}}} % figures
+\NewDocumentCommand{\tabref}{s m}{Table~\ref{#2}\IfBooleanF{#1}{ \nameref{#2}}} % tables
+\NewDocumentCommand{\theoref}{s m}{Theorem~\ref{#2}\IfBooleanF{#1}{ \nameref{#2}}} % theorem
+\NewDocumentCommand{\defref}{s m}{Definition~\ref{#2}\IfBooleanF{#1}{ \nameref{#2}}} % definition
+\NewDocumentCommand{\propref}{s m}{Propotition~\ref{#2}\IfBooleanF{#1}{ \nameref{#2}}} % propotition
+\NewDocumentCommand{\rmkref}{s m}{Remark~\ref{#2}\IfBooleanF{#1}{ \nameref{#2}}} % theorem
+\NewDocumentCommand{\assref}{s m}{Assumption~\ref{#2}\IfBooleanF{#1}{ \nameref{#2}}} % theorem
+\NewDocumentCommand{\algref}{s m}{Algorithm~\ref{#2}\IfBooleanF{#1}{ \nameref{#2}}} % algorithm
+\NewDocumentCommand{\notref}{s m}{Notation~\ref{#2}\IfBooleanF{#1}{ \nameref{#2}}} % algorithm
+
+% \usepackage{cleveref} % use multiple references: \cref{ref1,ref2,ref3}
+
+\usepackage{parskip}
+% \setlength{\parskip}{.2em} % increase space between two paragraphs
+
+\usepackage{multicol} % make columns auto
+\usepackage{vwcol}
+% \usepackage{parcolumns} % columns diff size
+
+% add code, listing (see file table-figure.tex)
+% algorithm (see file table-figure.tex)
+
+% \usepackage{setspace} % increase space
+
+% \usepackage{enumerate}
+
+\usepackage{pdfpages} % for \includepdf

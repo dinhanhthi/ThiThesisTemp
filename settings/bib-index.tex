@@ -1,0 +1,38 @@
+\usepackage{csquotes} % for warning: csquotes missing
+\usepackage[
+	style=numeric,
+	citestyle=numeric,
+	sorting=nyt,
+	sortcites=true,
+	autopunct=true,
+	autolang=hyphen,
+	hyperref=true,
+	url=false,
+	abbreviate=false,
+	backref=true,
+	backend=biber,
+	defernumbers=true,
+	isbn=false,
+	doi=false]{biblatex}
+\addbibresource{myref.bib} % BibTeX bibliography file
+\defbibheading{bibempty}{}
+
+\usepackage{calc} % For simpler calculation - used for spacing the index letter headings correctly
+\usepackage{makeidx} % Required to make an index
+\makeindex % Tells LaTeX to create the files required for indexing
+
+% -----------------------------------------
+% change back ref format
+% -----------------------------------------
+\DeclareFieldFormat{pagerefformat}{\mkbibparens{{\color{ocre!90}\mkbibemph{#1}}}}
+\renewbibmacro*{pageref}{%
+  \iflistundef{pageref}
+    {}
+    {
+      \printtext[pagerefformat]{%
+       \ifnumgreater{\value{pageref}}{1}
+         {\bibstring{backrefpages}\ppspace}
+         {\bibstring{backrefpage}\ppspace}%
+       \printlist[pageref][-\value{listtotal}]{pageref}}
+    }
+}

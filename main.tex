@@ -1,0 +1,220 @@
+% !TeX root = ./main.tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Windows: C:\Dropbox\git\thesis\main.tex
+% Linux: /home/thi/Dropbox/git/thesis/main.tex
+% The Legrand Orange Book template
+% Original author: Mathias Legrand (legrand.mathias@gmail.com) 
+% Edited by DINH Anh Thi (dinhanhthi@gmail.com)
+% Compiling
+% 1) pdflatex main
+% 2) makeindex main.idx -s StyleInd.ist
+% 3) biber main
+% 4) pdflatex main x 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[12pt,twoside,table]{book} 
+% Default font size and left-justified equations
+
+\input{settings/packages} % pakages and configurations
+\input{settings/table-figure} % tables, figures, drawing
+\input{settings/font} % fonts
+\input{settings/bib-index} % bibliography and index
+\input{settings/toc} % table of contents
+\input{settings/page-header} % page headers
+\input{settings/theorem-style} % theorem styles
+\input{settings/sec-numbering-margin} % section numbering margin
+\input{settings/part-heading} % part headings
+\input{settings/chapter-heading} % chapter headings
+\input{settings/abbreviate-math} % shorten for maths commands 
+\input{settings/hyperlink} % hyperlinks
+\input{settings/glossaries} % symbols and notations
+
+
+
+%%
+% For backcover on the even number side
+%\newcommand*\cleartoleftpage{%
+%  \clearpage
+%  \ifodd\value{page}\hbox{}\newpage\fi
+%}
+\usepackage{afterpage} % insert a blank page
+\newcommand\blankpage{%
+    \null
+    \thispagestyle{empty}%
+    \addtocounter{page}{-1}%
+    \newpage}
+
+
+
+%==============================================
+%	BEGIN DOCUMENT
+%==============================================
+% \usepackage[right]{lineno} % line numbers
+% \linenumbers
+\begin{document}
+
+%---------------------------------------------
+%	TITLE PAGE
+%---------------------------------------------
+\title{A Finite Element Approximation of a biofilm growth model}
+%\input{frontmatter/title} % title of the thesis
+
+\includepdf{cover}
+\cleardoublepage
+\includepdf{cover-eng}
+
+
+%---------------------------------------------
+%	FRONTMATTERS
+%---------------------------------------------
+\renewcommand\partname{Part}
+\renewcommand\chaptername{Chapter}
+\renewcommand\contentsname{Contents}
+\renewcommand\listfigurename{List of Figures}
+\renewcommand\listtablename{List of Tables}
+\renewcommand\indexname{Index}
+\renewcommand{\figurename}{Figure}
+\renewcommand{\tablename}{Table}
+\renewcommand*{\proofname}{Proof}
+
+
+
+%---------------------------------------------
+%	FRONTMATTERS
+%---------------------------------------------
+
+
+\pagestyle{empty} % No headers
+\frontmatter
+
+\input{frontmatter/abstract} % abstract
+
+\cleardoublepage
+
+\input{frontmatter/acknowledgements} % acknowledgements
+
+\cleardoublepage
+
+\tableofcontents % Print the table of contents itself
+
+\cleardoublepage
+
+\input{frontmatter/glossaries} % notations, symbols, glossaries
+
+\cleardoublepage % Forces the first chapter to start on an odd page so it's on the right
+
+\pagestyle{fancy} % Print headers again
+
+\begingroup % start to insert mini toc at beginning of each chapter
+\input{settings/mini-toc} % mini toc for each chapters
+
+\mainmatter % start to count the page number
+
+%---------------------------------------------
+% remove space before and after math align
+%---------------------------------------------
+
+\setlength\abovedisplayskip{-5pt}
+% % \setlength\belowdisplayskip{10pt plus 2pt minus 15pt}
+\setlength\belowdisplayskip{\parskip}
+\setlength\abovedisplayshortskip{-5pt}
+% % \setlength\belowdisplayshortskip{10pt plus 2pt minus 15pt}
+\setlength\belowdisplayshortskip{\parskip}
+
+% % \setlength{\jot}{15pt} % spaces inside align
+
+%---------------------------------------------
+% Introduction
+%---------------------------------------------
+
+%\subfile{chapters/chap-intro}
+
+
+
+%---------------------------------------------
+%	PART 1
+%---------------------------------------------
+
+\part{nxfem method}
+\label{part:nxfem}
+
+\subfile{chapters/chap-example}
+
+%---------------------------------------------
+%	PART 2
+%---------------------------------------------
+
+\part{nxfem with biofilms}
+\label{part:nxfem-biofilm}
+
+%---------------------------------------------
+%	PART 3
+%---------------------------------------------
+
+\part*{appendix}
+
+\appendix
+
+\subfile{chapters/app-A}
+%\subfile{chapters/app-B}
+
+\backmatter % don't number chapter
+
+\endgroup % end of inserting mini toc at beginning of each chapter
+
+%----------------------------------------------
+%	list of tables & figures & algorithm
+%----------------------------------------------
+
+\part*{references}
+
+\listoffigures % list of all figures
+\addcontentsline{toc}{chapter}{List of Figures}
+
+\listoftables % list of all tables
+\addcontentsline{toc}{chapter}{List of Tables}
+
+\listofalgorithms
+\addcontentsline{toc}{chapter}{List of Algorithms}
+
+
+%----------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------
+
+\chapter*{Bibliography}
+\addcontentsline{toc}{chapter}{Bibliography}
+
+%------------------------------------------------
+
+\section*{Articles}
+\printbibliography[heading=bibempty,type=article]
+
+%------------------------------------------------
+
+\section*{Books}
+\printbibliography[heading=bibempty,type=book]
+
+%------------------------------------------------
+
+\section*{Thesis}
+\printbibliography[heading=bibempty,type=thesis]
+
+
+%-----------------------------------------------
+%	INDEX
+%-----------------------------------------------
+
+\cleardoublepage
+\phantomsection
+\setlength{\columnsep}{0.75cm}
+\addcontentsline{toc}{chapter}{Index}
+\printindex
+
+%\cleartoleftpage
+\blankpage
+
+\includepdf{back-cover}
+
+%------------------------------------------------
+
+\end{document}

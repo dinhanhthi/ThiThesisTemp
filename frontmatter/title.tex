@@ -1,0 +1,11 @@
+% !TeX root = ../main.tex
+\begingroup
+\thispagestyle{empty}
+\begin{tikzpicture}[remember picture,overlay]
+\node[inner sep=0pt] (background) at (current page.center) {\includegraphics[width=\paperwidth]{background}};
+\draw (current page.center) node [fill=ocre!95,fill,text opacity=1,inner sep=2cm]{\Huge\centering\bfseries\sffamily\parbox[c][][t]{\paperwidth}{\centering \color{white} Finite Element Methods for nonlinear interface problem. Application to a biofilm growth model.\\[15pt] % Book title
+{\Large\mdseries PhD Thesis}\\[20pt] % Subtitle
+{\LARGE\mdseries Anh-Thi DINH}}}; % Author name
+\end{tikzpicture}
+\vfill
+\endgroup

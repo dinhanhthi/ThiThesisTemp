@@ -1,0 +1,85 @@
+\usepackage[section,style=index,acronym,toc,nogroupskip]{glossaries}
+% \usepackage{glossaries-extra}
+
+\newglossary[olg]{operator}{oyi}{oyg}{Operators}
+\newglossary[nlg]{notation}{nyi}{nyg}{Notations}
+
+% \setglossarystyle{long3col}
+\setglossarystyle{long3colheader}
+% \renewcommand*{\glstextformat}[1]{\textcolor{tblue!90}{#1}}
+
+\makeglossaries
+
+
+% =============================================
+% List of acronyms
+% =============================================
+
+\newacronym{fem}{FEM}{Finite Element Method}
+\newacronym{nxfem}{NXFEM}{Nitsche-Extended Finite Element Method}
+\newacronym{xfem}{XFEM}{Extended Finite Element Method}
+\newacronym{nfem}{NFEM}{Nitsche Finite Element Method}
+\newacronym{eps}{EPS}{Extracellular Polymeric Substances}
+\newacronym{iim}{IIM}{Immersed Interface Method}
+\newacronym{dgm}{DGM, DG}{Discontinuous Galerkin Method}
+\newacronym{lhs}{LHS}{Left Hand Side}
+\newacronym{rhs}{RHS}{Right Hand Side}
+\newacronym{lsm}{LSM}{Level Set Method}
+\newacronym{ddm}{DDM}{Domain Decomposition Method}
+\newacronym{oned}{1D}{Dimension 1 or 1 dimensional}
+\newacronym{twod}{2D}{Dimension 2 or 2 dimensional}
+\newacronym{aprx}{aprx}{Approximate}
+\newacronym{wrt}{w.r.t}{with respect to}
+\newacronym{ips}{ips}{intersection points}
+\newacronym{sdfem}{SDFEM}{Streamline Diffusion Finite Element Method}
+\newacronym{fmm}{FMM}{Fast Marching Method}
+\newacronym{supg}{SUPG}{Streamline Upwinding Petrov-Galerkin method}
+
+% =============================================
+% Notations
+% =============================================
+
+\newglossaryentry{not:unv}{ % unit normal vector
+  type=notation,
+  name=\ensuremath{\nv, \nv_F},
+  description={
+    unit normal vector at a given point on interface or on edge $F$ (its direction will be precised when needed or be chosen arbitrarily).
+  }
+}
+\newglossaryentry{not:Th}{ % triangulation
+  type=notation,
+  name=\ensuremath{\mathcal{T}_h, \Th^i},
+  description={
+    conforming triangulation of domain $\Omg$ and it subset which covers subdomain $\Omg_i$.
+  }
+}
+
+
+
+
+% =============================================
+% Operators
+% =============================================
+
+\newglossaryentry{op:inner}{ % inner product
+  type=operator,
+  name=\ensuremath{\abr{u,v}_K},
+  description={
+    inner product on a convex set or on a line.
+  }
+}
+\newglossaryentry{op:Interjump}{ % jump
+  type=operator,
+  name=\ensuremath{\ssb{u}},
+  description={
+    jumb condition on an interface or on an edge of the mesh's element, cf. \defref*{def:jump-average}.
+  }
+}
+\newglossaryentry{op:Interave}{ % average
+  type=operator,
+  name=\ensuremath{\bbrace{u}},
+  description={
+    average condition on an interface or on an edge of the mesh's element, cf. \defref*{def:jump-average}. 
+  }
+}
+

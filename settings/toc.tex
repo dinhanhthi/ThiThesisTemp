@@ -1,0 +1,133 @@
+% !TeX root = ../main.tex
+%---------------------------------
+%	MAIN TABLE OF CONTENTS
+%---------------------------------
+\usepackage{titletoc} % Required for manipulating the table of contents
+
+\contentsmargin{0cm} % Removes the default margin
+
+% Part text styling
+\titlecontents{part}[0cm]
+  {\addvspace{20pt}\centering\large}
+  {}
+  {}
+  {}
+
+% Chapter text styling
+\titlecontents{chapter}[0.8cm] % Indentation
+  {\addvspace{10pt}\sffamily\bfseries\large} % Spacing and font options for chapters
+  {\color{ocre!90}\contentslabel[\Large\thecontentslabel]{0.8cm}\color{ocre!90}} % Chapter number
+  {\color{ocre!90}}
+  {\hfill\color{ocre!90}\thecontentspage} % Page number
+
+% Section text styling
+\titlecontents{section}[0.8cm] % Indentation
+  {\addvspace{7pt}\sffamily\normalsize} % Spacing and font options for sections
+  {\contentslabel[\thecontentslabel]{0.8cm}} % Section number
+  {}
+  {\normalsize\;\titlerule*[.5pc]{.}\;\thecontentspage} % Page number
+  []
+
+% Subsection text styling
+\titlecontents{subsection}[1.8cm] % Indentation
+  {\addvspace{3pt}\sffamily\small} % Spacing and font options for subsections
+  {\contentslabel[\thecontentslabel]{1cm}} % Subsection number
+  {}
+  {\small\;\titlerule*[.5pc]{.}\;\thecontentspage} % Page number
+  []
+
+%-----------------------------------------
+%	MINI TABLE OF CONTENTS IN PART HEADS
+%-----------------------------------------
+
+% Chapter text styling
+\titlecontents{lchapter}[0em] % Indenting
+  {\addvspace{15pt}\large\sffamily\bfseries} % Spacing and font options for chapters
+  {\color{ocre!90}\contentslabel[\Large\thecontentslabel]{0.8cm}\color{ocre!90}} % Chapter number
+  {}  
+  {\color{ocre!90}\normalsize\sffamily\bfseries\;\titlerule*[.5pc]{.}\;\thecontentspage} % Page number
+
+\titlecontents{lsection}[0.8cm] % Indentation
+  {\addvspace{3pt}\sffamily} % Spacing and font options for sections
+  {\contentslabel[\thecontentslabel]{0.8cm}} % Section number
+  {}
+  {\ \titlerule*[.5pc]{.}\;\thecontentspage} % Page number
+  []
+
+\titlecontents{lsubsection}[1.55cm] % Indentation
+  {\addvspace{1pt}\sffamily\small} % Spacing and font options for subsections
+  {\contentslabel[\thecontentslabel]{1.55cm}} % Subsection number
+  {}
+  {\hfill\color{black}\thecontentspage} % Page number
+  []
+
+
+% -----------------------------------------------
+% List of figures and tables
+% -----------------------------------------------
+
+% List of figures
+\titlecontents{figure}[0.8cm]
+  {\addvspace{5pt}}
+  {\thecontentslabel\hspace*{1em}}
+  {}
+  {\ \titlerule*[.5pc]{.}\;\thecontentspage}
+  []
+
+% List of tables
+\titlecontents{table}[0.8cm]
+  {\addvspace{5pt}}
+  {\thecontentslabel\hspace*{1em}}
+  {}
+  {\ \titlerule*[.5pc]{.}\;\thecontentspage}
+  []
+
+% ----------------------------------------------------
+% Add chapter title to list of figures
+% cf. http://bit.ly/2Hr9jUW
+% ----------------------------------------------------
+% \usepackage{etoolbox}  % or xpatch
+
+% %% list of figures
+% \makeatletter
+% % initial definitions of the chapter info (name and number)
+% \def\thischaptertitle{}\def\thischapternumber{}
+% \newtoggle{noFigs}
+% \apptocmd{\@chapter}%
+%   {\gdef\thischaptertitle{#1}\gdef\thischapternumber{\thechapter}%
+%     \global\toggletrue{noFigs}}{}{}
+
+% % the figure environment does the job: the first time it is used after a \chapter command, 
+% % it writes the information of the chapter to the LoF
+% \AtBeginDocument{%
+%   \AtBeginEnvironment{figure}{%
+%     \iftoggle{noFigs}{
+%       \addtocontents{lof}{\protect\contentsline {chapter}%
+%         {\protect\numberline {\thischapternumber} {\thischaptertitle}}{}{} }
+%       \global\togglefalse{noFigs}
+%     }{}
+%   }%
+% }
+% \makeatother
+
+% %% list of tables
+% \makeatletter
+% % initial definitions of the chapter info (name and number)
+% \def\thischaptertitle{}\def\thischapternumber{}
+% \newtoggle{noTabs}
+% \apptocmd{\@chapter}%
+%   {\gdef\thischaptertitle{#1}\gdef\thischapternumber{\thechapter}%
+%     \global\toggletrue{noTabs}}{}{}
+
+% % the table environment does the job: the first time it is used after a \chapter command, 
+% % it writes the information of the chapter to the LoT
+% \AtBeginDocument{%
+%   \AtBeginEnvironment{figure}{%
+%     \iftoggle{noTabs}{
+%       \addtocontents{lot}{\protect\contentsline {chapter}%
+%         {\protect\numberline {\thischapternumber} {\thischaptertitle}}{}{} }
+%       \global\togglefalse{noTabs}
+%     }{}
+%   }%
+% }
+% \makeatother

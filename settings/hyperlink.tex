@@ -1,0 +1,33 @@
+% following must be the end of structure file
+\usepackage{hyperref}
+\hypersetup{
+  hidelinks,
+%  backref=true,
+%  pagebackref=true,
+%  hyperindex=true,
+  colorlinks=false,
+  breaklinks=true,
+  urlcolor= tblue,
+%  bookmarks=true,
+  bookmarksopen=false,
+  bookmarksdepth=2,
+  pdftitle={Finite Element Methods for nonlinear interface problem. Application to a biofilm growth model},
+  pdfauthor={Anh-Thi DINH}
+}
+
+% --------------------------------------
+% pdf viewer
+% --------------------------------------
+\usepackage{bookmark}
+\bookmarksetup{
+  open,
+  numbered,
+  addtohook={%
+    \ifnum\bookmarkget{level}=0 % chapter
+    \bookmarksetup{bold}%
+    \fi
+    \ifnum\bookmarkget{level}=-1 % part
+    \bookmarksetup{color=tblue,bold}%
+    \fi
+  }
+}

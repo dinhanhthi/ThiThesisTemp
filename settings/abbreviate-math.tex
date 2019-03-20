@@ -1,0 +1,248 @@
+% ========================
+% Without parameters
+% ========================
+
+\usepackage{stmaryrd} % llbracket [[ ]]
+\newcommand{\ssb}[1]{
+  \llbracket{#1}\rrbracket
+}
+
+\newcommand{\abr}[1]{ % angle bracket
+  \langle{#1}\rangle
+}
+
+\newcommand{\bigbrace}[1]{ % big brace { }
+  \left\{ #1 \right\}
+}
+
+\newcommand{\bigparen}[1]{ % big ()
+  \left( #1 \right)
+}
+% \newcommand{\bigparen}[1]{ % big ()
+%   \big( #1 \big)
+% }
+
+\newcommand{\mbf}[1]{ % mathbf
+  \mathbf{#1}
+}
+
+\newcommand{\mbb}[1]{ % mathbb
+  \mathbb{#1}
+}
+
+\newcommand{\Norm}[1]{ % norm
+  \Vert{#1}\Vert
+}
+
+\newcommand{\Abs}[1]{ % |u|
+  \vert{#1}\vert
+}
+
+\newcommand{\sbj}[1]{{\color{tgreen}\small\sffamily\textbf{#1}}}
+
+\newcommand{\gpage}[1]{ % glossary page
+({\color{tblue!90}\textit{page \pageref{#1}}})}
+
+
+% Triple norm |||.|||
+% use \vvvert{}
+\usepackage{mathtools}
+\newcommand{\mynegspace}{\hspace{-0.12em}}
+\newcommand{\lvvvert}{\rvert\mynegspace\rvert\mynegspace\rvert}
+\newcommand{\rvvvert}{\rvert\mynegspace\rvert\mynegspace\rvert}
+\DeclarePairedDelimiter{\vvvert}{\lvvvert}{\rvvvert}
+% -- end of triple norm
+
+
+% -- double braces bracket symbol {{ }}
+% use \bbrace{}
+% \usepackage{xparse} % already added in package.tex
+\NewDocumentCommand{\bbrace}{sO{}m}{%
+  \IfBooleanTF{#1}
+    {\dgalext{#3}}
+    {\dgalx[#2]{#3}}%
+}
+\NewDocumentCommand{\dgalext}{m}{%
+  \sbox0{%
+    \mathsurround=0pt % just for safety
+    $\left\{\vphantom{#1}\right.\kern-\nulldelimiterspace$%
+  }%
+  \sbox2{\{}%
+  \ifdim\ht0=\ht2
+    \{\kern-.625\wd2 \{#1\}\kern-.625\wd2 \}%
+  \else
+    \left\{\kern-.7\wd0\left\{#1\right\}\kern-.7\wd0\right\}%
+  \fi
+}
+\NewDocumentCommand{\dgalx}{om}{%
+  \sbox0{\mathsurround=0pt$#1\{$}%
+  \sbox2{\{}%
+  \ifdim\ht0=\ht2
+    \{\kern-.625\wd2 \{#2\}\kern-.625\wd2 \}%
+  \else
+    \mathopen{#1\{\kern-.7\wd0 #1\{}
+    #2
+    \mathclose{#1\}\kern-.7\wd0 #1\}}
+  \fi
+}
+% -- end of double brace bracket symbol
+
+% ========================
+% Without parameters
+% ========================
+
+\newcommand{\pt}[0]{ % partial
+  \partial
+}
+
+\newcommand{\bigdot}[0]{
+  \color{tblue}\bullet 
+}
+
+\newcommand{\nb}[0]{ % nabla
+  \nabla
+}
+
+\newcommand{\Omg}[0]{ % Omega
+  \Omega
+}
+
+\newcommand{\omg}[0]{ % Omega
+  \omega
+}
+
+\newcommand{\nv}[0]{ % normal vector
+  \mathbf{n}
+}
+
+\newcommand{\kap}[0]{ % kappa
+  \kappa
+}
+
+\newcommand{\Gam}[0]{ % Gamma
+  \Gamma
+}
+
+\newcommand{\gam}[0]{ % Gamma
+  \gamma
+}
+
+\newcommand{\lam}[0]{ % lambda
+  \lambda
+}
+
+\newcommand{\eps}[0]{ % epsilon
+  \epsilon
+}
+
+\newcommand{\veps}[0]{ % varepsilon
+  \varepsilon
+}
+
+\newcommand{\Th}[0]{ % triangulation
+  \mathcal{T}_h
+}
+
+\newcommand{\gradn}[0]{ % grad_n
+  \nabla_{\mathbf{n}}
+}
+
+\newcommand{\VhG}[0]{ % V_h^\Gam
+  V_h^{\Gamma}
+}
+\newcommand{\Vh}[0]{ % V_h
+  V_h
+}
+
+\newcommand{\HG}[0]{ % \HG
+  H_{\Gamma}
+}
+
+\newcommand{\IG}[0]{ % \IG
+  \mathcal{I}_{\Gamma}
+}
+
+\newcommand{\vp}[0]{ % \varphi
+  \varphi
+}
+
+\newcommand{\vpi}[0]{ % \varphi_i
+  \varphi_i
+}
+\newcommand{\vpj}[0]{ % \varphi_j
+  \varphi_j
+}
+\newcommand{\vpki}[0]{ % \varphi_ki
+  \varphi_{k(i)}
+}
+\newcommand{\vpkj}[0]{\varphi_{k(j)}}
+
+\newcommand{\vph}[0]{\varphi_h}
+
+\newcommand{\supp}[0]{ % support
+  \text{supp}
+}
+
+\newcommand{\Span}[0]{ % span
+  \text{span}
+}
+
+\newcommand{\Lh}[0]{ % lifting operator
+  \mathcal{L}_h
+}
+
+\newcommand{\GhO}[0]{ % discrete gradient operator
+  \mathcal{G}_h
+}
+
+\newcommand{\hx}[0]{ % hat x
+  \hat{x}
+}
+\newcommand{\hy}[0]{ % hat y
+  \hat{y}
+}
+\newcommand{\x}[0]{ % x
+  \text{x}
+}
+\newcommand{\hhx}[0]{
+  \hat{\text{x}}
+}
+\newcommand{\Nnew}[0]{ % N_new
+  N_{\text{new}}
+}
+\newcommand{\new}[0]{ % new
+  \text{new}
+}
+\newcommand{\old}[0]{ % old
+  \text{old}
+}
+\newcommand{\mE}[0]{ % matrix E
+  \mathbf{E}
+}
+\newcommand{\mH}[0]{ % matrix H
+  \mathbf{H}
+}
+\newcommand{\vu}[0]{ % velocity u
+  \mathbf{u}
+}
+\newcommand{\Tmax}[0]{ % T max
+  T_{\max}
+}
+
+%\usepackage{contour} % for bold symbol
+
+\newcommand{\vphi}[0]{ % vector phi
+  \vec{\phi}
+%	{\boldsymbol\phi}
+%\contour[2]{black}{$\phi$}
+}
+\newcommand{\etal}[0]{\textit{et al.}}
+
+\newcommand{\uh}[0]{u_h}
+\newcommand{\vh}[0]{v_h}
+\newcommand{\wh}[0]{w_h}
+
+\newcommand{\ex}[0]{\text{ex}}
+
+\newcommand{\wrt}[0]{w.r.t.}
+

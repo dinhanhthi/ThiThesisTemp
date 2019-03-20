@@ -1,0 +1,33 @@
+\chapter*{Glossaries, notations and symbols}
+\addcontentsline{toc}{chapter}{Glossaries, notations and operators}
+
+In this section, I list all of the acronyms, operators and notations I will use throughout this thesis. There may be ones that are only defined here and used later without recall the definition at the place they appear.
+
+% \setlength\abovedisplayskip{0pt}
+% \setlength\belowdisplayskip{0pt}
+% \setlength\abovedisplayshortskip{0pt}
+% \setlength\belowdisplayshortskip{0pt}
+
+
+% =============================================
+% Print
+% =============================================
+
+\begingroup
+\let\clearpage\relax
+\renewcommand*{\arraystretch}{1.7} % default is 1
+\renewcommand*{\entryname}{\textsf{Initials}}
+\renewcommand*{\descriptionname}{\textsf{Meaning}}
+\renewcommand*{\pagelistname}{}
+\printglossary[type=\acronymtype,nonumberlist]
+\renewcommand*{\entryname}{\textsf{Notations}}
+\renewcommand*{\descriptionname}{\textsf{Meaning}}
+\renewcommand*{\pagelistname}{\textsf{Page}}
+\printglossary[type={notation}]
+\renewcommand*{\entryname}{\textsf{Operators}}
+\renewcommand*{\descriptionname}{\textsf{Meaning}}
+\renewcommand*{\pagelistname}{\textsf{Page}}
+\printglossary[type={operator}]
+\endgroup
+
+\glsaddall % print all glossaries
