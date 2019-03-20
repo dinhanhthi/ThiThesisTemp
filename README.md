@@ -8,4 +8,4 @@ A simple beautiful LaTeX theme for books, thesis.
 
 ## How to use this theme?
 
-This theme is made for the ones who love texmaker and texstudio. If you use other TeX editor and cannot compile it, please let me know at [dinhanhthi@gmail.com](mailto:dinhanhthi@gmail.com).
+This theme is made for ones who love [texmaker](http://www.xm1math.net/texmaker/) and [texstudio](https://www.texstudio.org/). If you use other TeX editors and cannot compile this theme, please let me know at [dinhanhthi@gmail.com](mailto:dinhanhthi@gmail.com).
