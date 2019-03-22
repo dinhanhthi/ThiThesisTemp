@@ -2,8 +2,8 @@
 \usepackage{avant} % Use the Avantgarde font for headings
 \usepackage{mathptmx} 
 \usepackage{microtype} % Slightly tweak font spacing for aesthetics
-\usepackage[utf8]{inputenc} % Required for including letters with accents
-\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+\usepackage[utf8]{vietnam} % Required for including letters with accents
+%\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
 \usepackage{amsmath,amsfonts,amssymb,amsthm} 
 \usepackage{graphicx}
 \usepackage[a4paper,includeall,bindingoffset=0cm,margin=1cm,
@@ -24,6 +24,9 @@
 
 \usepackage{tcolorbox}
 
+% just for testing
+\usepackage{lipsum}
+
 \begin{document}
 
 \thispagestyle{empty}	
@@ -33,20 +36,17 @@
 
 \smallskip
 
-\textbf{\color{tblue}Titre:} {\color{black!90}\textbf{Méthodes d'éléments finis pour des systèmes d'EDP non linéaires avec interface. Application à un modèle de croissance de biofilm}.}
+\textbf{\color{tblue}Titre:} {\color{black!90}\textbf{This is an awesome title for this thesis! It's not short, it's long!}.}
 
 \medskip
 
-\textbf{\color{tblue}Mots clés:} \textit{NXFEM, Nitsche-Extended Finite Element Method, problème d’interface, méthode de lignes de niveau, biofilm.}
+\textbf{\color{tblue}Mots clés:} \textit{This is, some, keyworks, for, this awesome, work.}
 
 \medskip
 
-\textbf{\color{tblue}Résumé:} {\small Un biofilm est un ensemble  de micro-organismes tels que les  bactéries, les champignons ou encore les  algues qui  vivent en  communauté.  Les biofilms ont la capacité  d'être présents en tout lieu. Ils sont  observés dans les milieux aqueux ou humides. Ils peuvent se développer sur n'importe quel type de surface naturelle ou artificielle, qu'elle soit minérale (roche, interfaces air-liquide...) ou organique (peau, tube digestif, racines et feuilles des plantes), industrielle (canalisations, coques des navires) ou médicale  comme les prothèses et  les cathéters. Cette ubiquité est à l'origine de  nombreuses infections bactériennes. Les infections nosocomiales  contractées dans les hôpitaux sont un exemple majeur.  Certaines de ces infections pouvant être mortelles.  Le traitement médical  des biofilms  est souvent inefficace pour lutter contre ce type d'infection. Il est donc important de comprendre les mécanismes de croissance d'un biofilm. Telle est la motivation de la présente thèse.\smallskip
+\textbf{\color{tblue}Résumé:}
+\lipsum[1-2]
 
-Afin de réaliser des simulations numériques  d'un modèle décrivant la croissance d'un biofilm, nous combinons différentes  méthodes de calcul basées sur la méthode Nitsche-Extended Finite Element Method (NXFEM) ainsi que sur la  méthode des lignes de niveau. Ces méthodes nous permettent d'étudier  des modèles  complexes  dans lesquels
-l'interface entre le biofilm et son environnement est capable de se déformer tout en dépendant du temps. Ceci permet de considérer une discrétisation à l'aide d'un maillage ne coïncidant pas avec l'interface biofilm/environnement. Nous présentons également une technique de découplage d'un système d'équations aux dérivées partielles semi-linéaires et la façon dont nous appliquons la méthode NXFEM pour résoudre un tel problème. Ce système est en relation avec le modèle de croissance du biofilm qui est traité dans cette thèse.\smallskip
-
-Pour l'implémentation, une boîte à outils NXFEM, développée en Matlab, a été entièrement conçue pour résoudre un tel problème. Nous donnons dans ce document les détails des algorithmes et techniques numériques utilisés afin que chacun puisse utiliser cette boîte à outils pour ses propres projets.}
 
 \smallskip
 
@@ -60,28 +60,25 @@ Pour l'implémentation, une boîte à outils NXFEM, développée en Matlab, a é
 
 \smallskip
 
-\textbf{\color{tblue}Title:} {\color{black!90}\textbf{Finite Element Methods for nonlinear interface problems. Application to a biofilm growth model}.}
+\textbf{\color{tblue}Title:} {\color{black!90}\textbf{Đây là một cái tựa đề rất ngầu, và nó không có ngắn đâu!}.}
 
 \medskip
 
-\textbf{\color{tblue}Keywords:} \textit{NXFEM, Nitsche-Extended Finite Element Method, interface problem, level set method, biofilm, unfitted mesh.}
+\textbf{\color{tblue}Keywords:} \textit{This is, some, keyworks, for, this awesome, work.}
 
 \medskip
 
-\textbf{\color{tblue}Abstract:} A biofilm is a collective of living, reproducing microorganisms, such as bacteria, that stick together as a colony, or community. They appear everywhere in human life and have some impacts on our environment. Biofilm modeling, together with laboratory experiments, has risen as a means of producing quantitative tools for scientists to better understand the biofilm's growth. This thesis is motivated to research on this subject. \smallskip
-
-A combination of computational methods which are based on \textit{Nitsche-Extended Finite Element Method} (NXFEM), \textit{Level Set Method} and some other stabilized techniques are used to solve and simulate a biofilm growth model. These methods allow us to work with a complex scheme in which the interface between the biofilm and its environment is allowed to change with time and on an unfitted mesh. We also present a technique of decoupling a system of semilinear differential equations and how we apply the NXFEM method to solve such a problem. This system has a relation to a model of biofilm's growth which will be examined carefully in the work. \smallskip
-
-For the implementations, \textit{NXFEM toolbox} which is a Matlab based toolbox is built for solving such a problem. We give also the details of all algorithms and numerical techniques so that everyone can use this toolbox for their own projects.
+\textbf{\color{tblue}Abstract:}
+\lipsum[3-4] 
 
 \smallskip
 
 \end{tcolorbox}
 
 \begin{center}
-\textbf{\color{black!90}Université Paris 13}\\
-\textit{Laboratoire Analyse, Géométrie et Application}\\
-UMR CNRS 7539, Villetaneusse, France
+\textbf{\color{black!90}Math2IT University}\\
+\textit{A name of a laboratory}\\
+3 Cach Mang Thang Tam, Ho Chi Minh City, Vietnam
 \end{center}
 
 

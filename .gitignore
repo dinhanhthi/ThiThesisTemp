@@ -2,6 +2,9 @@
 *.nyg
 *.oyg
 *.ptc
+*.nyi
+*.olg
+*.oyi
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
