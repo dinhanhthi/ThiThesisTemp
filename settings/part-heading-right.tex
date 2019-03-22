@@ -1,0 +1,71 @@
+% numbered part in the table of contents
+\newcommand{\@mypartnumtocformat}[2]{%
+  \setlength\fboxsep{0pt}%
+  \noindent\colorbox{tblue}{\strut\parbox[c][1cm]{\ecart}{\color{white}\Large\sffamily\centering \vspace{5pt}#1\vspace{5pt}}}\hskip\esp\colorbox{tblue}{\strut\parbox[c][1cm]{\linewidth-\ecart-\esp}{\color{white}\Large\sffamily\centering#2}}
+}%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% unnumbered part in the table of contents
+\newcommand{\@myparttocformat}[1]{%
+  \setlength\fboxsep{0pt}%
+  \noindent\colorbox{tblue}{\strut\parbox[c][1cm]{\linewidth}{\large\sffamily\centering#1}}
+}%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newlength\esp
+\setlength\esp{4pt}
+\newlength\ecart
+\setlength\ecart{1.2cm-\esp}
+\newcommand{\thepartimage}{}%
+\newcommand{\partimage}[1]{\renewcommand{\thepartimage}{#1}}%
+\def\@part[#1]#2{%
+  \ifnum \c@secnumdepth >-2\relax%
+  \refstepcounter{part}%
+  \addcontentsline{toc}{part}{\texorpdfstring{\protect\@mypartnumtocformat{\thepart}{#1}}{\partname~\thepart\ ---\ #1}}
+  \else%
+  \addcontentsline{toc}{part}{\texorpdfstring{\protect\@myparttocformat{#1}}{#1}}%
+  \fi%
+  \startcontents%
+  \markboth{}{}%
+  {\thispagestyle{empty}%
+  \begin{tikzpicture}[remember picture,overlay]%
+  \node at (current page.north west){\begin{tikzpicture}[remember picture,overlay]%	
+  \fill[tblue!0](0cm,0cm) rectangle (\paperwidth,-\paperheight); % background of part page
+  \node[anchor=north] at (4cm,-3.25cm){\color{tblue}\fontsize{220}{100}\sffamily\bfseries\thepart}; 
+  \node[anchor=south east] at (\paperwidth-1cm,-\paperheight+1cm){\parbox[t][][t]{8.5cm}{
+  \printcontents{l}{0}{\setcounter{tocdepth}{1}}%
+  }};
+  \node[anchor=north east] at (\paperwidth-1.5cm,-3.25cm){\parbox[t][][t]{15cm}{\strut\raggedleft\color{tblue}\fontsize{30}{30}\sffamily\bfseries#2}}; % name of part
+  \end{tikzpicture}};
+  \end{tikzpicture}}%
+  \@endpart
+}
+
+%% If using \part*
+\def\@spart#1{%
+  \startcontents%
+  \phantomsection
+  {\thispagestyle{empty}%
+  \begin{tikzpicture}[remember picture,overlay]%
+    \node at (current page.north west){\begin{tikzpicture}[remember picture,overlay]%	
+      \fill[tblue!0](0cm,0cm) rectangle (\paperwidth,-\paperheight);
+      \node[anchor=north east] at (\paperwidth-1.5cm,-3.25cm){\parbox[t][][t]{15cm}{\strut\raggedleft\color{tblue}\fontsize{30}{30}\sffamily\bfseries#1}};
+      \end{tikzpicture}
+    };
+  \end{tikzpicture}}
+  \addcontentsline{toc}{part}{\texorpdfstring{%
+    \setlength\fboxsep{0pt}%
+    \noindent\protect\colorbox{tblue}{\strut\protect\parbox[c][1cm]{\linewidth}{\color{white}\Large\sffamily\protect\centering #1\quad\mbox{}}}
+  }{#1}}%
+  \@endpart
+}
+\def\@endpart{\vfil\newpage
+  \if@twoside
+  \if@openright
+  \null
+  \thispagestyle{empty}%
+  \newpage
+  \fi
+  \fi
+  \if@tempswa
+  \twocolumn
+  \fi
+}

@@ -1,1 +1,0 @@
-pdflatex -synctex=1 -interaction=nonstopmode main.tex; makeindex main.idx -s StyleInd.ist; makeglossaries -s main.ist main; biber main; pdflatex -synctex=1 -interaction=nonstopmode main.tex; pdflatex -synctex=1 -interaction=nonstopmode main.tex
