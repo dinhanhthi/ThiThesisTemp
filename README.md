@@ -1,8 +1,9 @@
 # ThiThesisTemp
 
-A simple beautiful LaTeX theme for books, thesis. Check a demo at the file [main.pdf](https://github.com/dinhanhthi/ThiThesisTemp/blob/master/main.pdf) above.
+A simple beautiful LaTeX theme for books, thesis. 
 
-- Author: [DINH Anh-Thi](http://dinhanhthi.com "Thi's personal website").
+- **Demo**: file [main.pdf](https://github.com/dinhanhthi/ThiThesisTemp/blob/master/main.pdf) in the repository.
+- **Author**: [DINH Anh-Thi](http://dinhanhthi.com "Thi's personal website").
 - This template is modified (a lot) from [The Legrand Orange Book](https://www.latextemplates.com/template/the-legrand-orange-book) which is also a modifed version of other works.
 - This theme borrows the basic structure of TLOB but it wears a new suit which is lighter and simpler.
 
