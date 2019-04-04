@@ -43,7 +43,7 @@ For both cases, if you have no more on the glossary and index (you only use the 
 
 In the case you don't like the title of thesis, chapters which are floating to the right and you want them to be at the center. Just do, 
 
-- Copy & Overwrite files **center_headings/cover.tex** and **center_headings/cover-eng.tex** the files in the root folder. 
+- Copy & Overwrite files **center_headings/cover.tex** and **center_headings/cover-eng.tex** to the files in the root folder. 
 - Copy and Overwrite file **center_headings/chapter-heading.tex** to the file in **/settings**.
 
 Be careful, after overwriting, all contents you modified in the *cover.tex* and *cover-eng.tex* will disappear. If you have already modified these files, just compare two files and manually replace the settings lines.
