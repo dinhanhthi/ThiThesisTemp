@@ -19,7 +19,7 @@ A simple beautiful LaTeX theme for books, thesis.
 8. Beautiful table theme.
 9. Classify references into different types (books, thesis, articles)
 10. Back link to pages for the bibliography.
-11. Cover & Backcover. 
+11. Cover & Back cover. 
 12. Multi languages.
 
 ## How to use this theme?
