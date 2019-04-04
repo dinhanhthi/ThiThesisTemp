@@ -39,7 +39,7 @@ pdflatex.exe -synctex=1 -interaction=nonstopmode main.tex && makeindex.exe main.
 
 For both cases, if you have no more on the glossary and index (you only use the ones made from the first build), you can run only with **PdfLaTeX** and **biber** as other normal LaTeX document.
 
-## Centering headins/titles
+## Centering headings/titles
 
 In the case you don't like the title of thesis, chapters which are floating to the right and you want them to be at the center. Just do, 
 
