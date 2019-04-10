@@ -24,7 +24,33 @@ A simple beautiful LaTeX theme for books, thesis.
 
 ## How to use this theme?
 
-This theme is made for ones who love [texmaker](http://www.xm1math.net/texmaker/) and [texstudio](https://www.texstudio.org/). If you use other TeX editors and cannot compile this theme, please let me know at [dinhanhthi@gmail.com](mailto:dinhanhthi@gmail.com).
+You can build this theme just by terminal at the first compilation. After that, you can build it by normal PdfLaTeX (in TeXStudio/TeXMaker or other TeX editors). If you have any trouble in compiling, please let me know at [dinhanhthi@gmail.com](mailto:dinhanhthi@gmail.com).
+
+- Add new chapters
+	- Add new files in **chapters/new-chapter.tex**. Just copy the example file **chap-example.tex**.
+	- Don't foget to include them in the main file with `\subfile{chapters/new-chapter}`.
+- Font matters are stored in **frontmatter/**.
+- All new figures are stored in **figures/**. You don't need to include *figures/* in the path of the files. For example, if you have *figures/folder1/figure1.png*, you just use *\includegraphics{folder1/figure1}* in the file tex.
+
+### Settings
+
+- If you wanna make some self-defined commands, environments, add and modify them in file **settings/abbreviate-math.tex**.
+- If you wanna modify the styles of theorem boxes, edit file **settings/theorem-style.tex**.
+- If you wanna add more glossaries, edit file **settings/glossaries.tex**. **Importance:** After adding some new glossary, you *have to* run again command `makeglossaries -s main.ist main` besides other normal commands. For the ease, you compile the theme like the first time with command lines.
+- If you wanna add some new indexes, you *have to* run again command `makeindex main.idx -s StyleInd.ist`.
+- If you wanna use other colors rather than the blue as I give you as a default, check the file **settings/table-figure.tex**, step to lines which define color `tblue`. Keep the name **tblue** but use different RBG color. You can check the RBG code of some color [here](https://www.w3schools.com/colors/colors_rgb.asp).
+- Other settings
+	- Bibliography & Index: *settings/bib-index.tex*.
+	- Fonts: *settings/font.tex*.
+	- Hyperlinks: *settings/hyperlink.tex*.
+	- Table of content: *settings/toc.tex*.
+	- Table of content at the beginning of each chapter: *settings/mini-toc.tex*.
+	- General packages: *settings/packages.tex*.
+	- Header & Footer: *settings/page-header.tex*.
+	- Headings: *settings/part-heading.tex*.
+	- Margin of section: *settings/sec-numbering-margin.tex*.
+	- Tables & Figures: *settings/table-figure.tex*.
+
 
 ## How to compile?
 
