@@ -3,7 +3,7 @@
 A simple beautiful LaTeX theme for books, thesis. 
 
 - **Demo**: file [main.pdf](https://github.com/dinhanhthi/ThiThesisTemp/blob/master/main.pdf) in the repository.
-- **Author**: [DINH Anh-Thi](http://dinhanhthi.com "Thi's personal website").
+- **Modified by**: [DINH Anh-Thi](http://dinhanhthi.com "Thi's personal website").
 - This template is modified (a lot) from [The Legrand Orange Book](https://www.latextemplates.com/template/the-legrand-orange-book) which is also a modifed version of other works.
 - This theme borrows the basic structure of TLOB but it wears a new suit which is lighter and simpler.
 
@@ -29,7 +29,7 @@ You can build this theme just by terminal at the first compilation. After that, 
 - Add new chapters
 	- Add new files in **chapters/new-chapter.tex**. Just copy the example file **chap-example.tex**.
 	- Don't foget to include them in the main file with `\subfile{chapters/new-chapter}`.
-- Font matters are stored in **frontmatter/**.
+- Front matters are stored in **frontmatter/**.
 - All new figures are stored in **figures/**. You don't need to include *figures/* in the path of the files. For example, if you have *figures/folder1/figure1.png*, you just use `\includegraphics{folder1/figure1}` in the file tex.
 
 ### Settings
